@@ -12,7 +12,7 @@ public class logInTestCase implements MultiThreadTestCase{
 
 	@Override
 	public void executeTestCase() throws Exception {
-		
+		//Login to the Flipkart application
 		logger.info(testDataLoader.get_start_login_testcase());
 	    
 		WebElement mobilenumberfield = wait.until(ExpectedConditions.visibilityOfElementLocated(locators.getLoginFieldLocator()));
