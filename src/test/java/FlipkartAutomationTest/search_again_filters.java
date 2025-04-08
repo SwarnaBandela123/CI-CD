@@ -2,7 +2,6 @@ package FlipkartAutomationTest;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import io.appium.java_client.AppiumBy;
 
 
 public class search_again_filters implements MultiThreadTestCase {

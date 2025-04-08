@@ -58,8 +58,6 @@ public class searchProduct implements MultiThreadTestCase {
 		        // Try locating the second element
 		        WebElement product_add_to_cart_icon = wait.until(ExpectedConditions.visibilityOfElementLocated(locators.getproductaddtocarticon()));
 		        product_add_to_cart_icon.click();
-		    //    product_add_to_cart_icon.click();
-
 		       
 		        try {
 		        WebElement product_add_to_cart = wait.until(ExpectedConditions.visibilityOfElementLocated(locators.getproductaddtocart()));

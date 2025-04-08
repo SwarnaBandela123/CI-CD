@@ -1,6 +1,5 @@
 package FlipkartAutomationTest;
 
-import java.io.IOException;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,9 +30,7 @@ public interface MultiThreadTestCase {
 	        KeyEvent key = new KeyEvent(AndroidKey.valueOf("NUMPAD_" + num));
 	        ((PressesKey) AndroidDriverInitializer.androiddriver).pressKey(key);
 	  	}
-	
-//	AndroidDriver android_driver = AndroidDriverInitializer.androiddriver; 
-	
+		
 	//Amazon App package and App activity
 	
 	String amazon_app_package="in.amazon.mShop.android.shopping";
@@ -70,46 +67,6 @@ public interface MultiThreadTestCase {
 		    logger.error("Driver is not initialized."); 
 		} 		
 		
-		
-	/*	
-		
-		Map<String, Object> params = new HashMap<>();
-		params.put("keycode", 4); // 4 is KEYCODE_BACK in Android
-		try {
-		    AndroidDriver back_to_previous_screen = AndroidDriverInitializer.androiddriver;
-		    back_to_previous_screen.executeScript("mobile: pressKey", params);
-		    WebDriverWait wait = new WebDriverWait(back_to_previous_screen,  Duration.ofSeconds(10));
-            WebElement back_arrow= wait.until(ExpectedConditions.visibilityOfElementLocated(locators.getbackarrow()));
-	           if(back_arrow.isDisplayed())
-	           {
-	   		    logger.info("Navigated back to previous screen.");
-	
-	           }else {
-		   		    back_to_previous_screen.executeScript("mobile: pressKey", params);
-		            if(back_arrow.isDisplayed())
-		            {
-		       		    logger.info("Navigated back to previous screen.");
-		            }
-	           }
-           
-		} catch (Exception e) {
-		    logger.error("Failed to navigate back using ADB command: " + e.getMessage());
-		} 
-	*/
-		/*
-	    try {
-	        // Define the TouchAction for simulating the back gesture
-	        new TouchAction(AndroidDriverInitializer.androiddriver)
-	            .press(PointOption.point(500, 1500))  // Example of coordinates for pressing
-	            .moveTo(PointOption.point(500, 1200))  // Move upwards to simulate the back swipe
-	            .release()
-	            .perform();  // Perform the action
-
-	        logger.info("Navigated back using TouchAction.");
-	    } catch (Exception e) {
-	        logger.error("Failed to navigate back using TouchAction: " + e.getMessage());
-	    }
-		*/
 	}
 	
 		

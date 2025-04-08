@@ -1,16 +1,13 @@
 package FlipkartAutomationTest;
 
-import java.time.Duration;
-
-import org.openqa.selenium.TimeoutException;
+import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
-import io.appium.java_client.AppiumBy;
 
 public class switch_to_Amazon implements MultiThreadTestCase{
 	 public static String AmazonName;
 	 public static double amazonOfferedPrice;
+	@SuppressWarnings("deprecation")
 	@Override
 	public void executeTestCase() throws Exception {
 		//switching to amazon applications
@@ -20,16 +17,7 @@ public class switch_to_Amazon implements MultiThreadTestCase{
         } else {
            logger.info("Driver is not initialized.");
         }
-	/*	
-		try {
-		WebElement skip_sign_in=wait.until(ExpectedConditions.visibilityOfElementLocated(locators.getskipsignin())); 
-		if(skip_sign_in.isDisplayed()) {
-			skip_sign_in.click();
-		}
-		}catch(TimeoutException SkipSignIn) {
-			logger.info("Getting exception: "+SkipSignIn.getMessage());
-	}
-	*/	
+
 		WebElement searchBox = wait.until(ExpectedConditions.visibilityOfElementLocated(locators.getsearchBox()));
 		searchBox.click(); // Focus the search box
 		
@@ -38,12 +26,10 @@ public class switch_to_Amazon implements MultiThreadTestCase{
 		 
 		MultiThreadTestCase.enter_button();// To click on enter button after entered the text in search field 
 		
-	//	MultiThreadTestCase.scrollFun(search_again_filters.FlipkartName);//		//page scroll and click on particular product
-
 		WebElement click_amazon_dress = wait.until(ExpectedConditions.visibilityOfElementLocated(locators.getclickamazondress()));
 		click_amazon_dress.click();
 		
-		Thread.sleep(Duration.ofSeconds(10));
+		AndroidDriverInitializer.androiddriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         //product name
 		WebElement AmazonProductName = wait.until(ExpectedConditions.visibilityOfElementLocated(locators.getAmazonProductName()));
 		AmazonName = AmazonProductName.getText();
@@ -54,11 +40,9 @@ public class switch_to_Amazon implements MultiThreadTestCase{
     	MultiThreadTestCase.scrollFun("Inclusive of all taxes");//		//page scroll and click on particular product
 
         
-     //   WebElement AmazonProductPrice = wait.until(ExpectedConditions.visibilityOfElementLocated(AppiumBy.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[2]/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View/android.view.View[3]/android.view.View[2]")));
    
         WebElement AmazonProductPrice = wait.until(ExpectedConditions.visibilityOfElementLocated(locators.getAmazonProductPrice()));
 
-        //    String amazonContentDesc = AmazonProductPrice.getAttribute("content-desc");
         String amazonContentDesc=AmazonProductPrice.getText();
         
 	    // Regular expression to extract the second price (offered price)
@@ -73,8 +57,7 @@ public class switch_to_Amazon implements MultiThreadTestCase{
 	    //Comparing price of Flipkart product and Amazon product
 	    
 	    try {
-	    //	if(search_again_filters.FlipkartName.equals(AmazonName))
-	    //	{
+	   
 	    		if(search_again_filters.flipkartOfferedPrice == amazonOfferedPrice) 
 	    		{
 		    		logger.info("Flipkart product price: "+ search_again_filters.flipkartOfferedPrice + " & Amazon product price: " + amazonOfferedPrice + " -- are same" );
@@ -90,10 +73,7 @@ public class switch_to_Amazon implements MultiThreadTestCase{
 	    		}else {
 	    			logger.info("Unexpected price comparison: Flipkart product price: " + search_again_filters.flipkartOfferedPrice + " and Amazon product price: " + amazonOfferedPrice);	    	
 	    			}
-	    /*	}else {
-	    		logger.info("Flipkart product: "+ search_again_filters.FlipkartName + " & Amazon product: " + AmazonName + " --are not same" );
-	    	}
-	    	*/
+	  
 	    }catch(Exception ProductPriceException){
 	    	logger.error("Getting exeption while comparing price: "+ProductPriceException.getMessage());
 	    }
