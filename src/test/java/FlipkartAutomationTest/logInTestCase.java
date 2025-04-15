@@ -5,11 +5,12 @@ import java.util.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.Test;
 
 
 public class logInTestCase implements MultiThreadTestCase{
 	
-
+ @Test
 	@Override
 	public void executeTestCase() throws Exception {
 		//Login to the Flipkart application

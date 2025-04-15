@@ -3,12 +3,15 @@ package FlipkartAutomationTest;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.Test;
 
 public class switch_to_Amazon implements MultiThreadTestCase{
 	 public static String AmazonName;
 	 public static double amazonOfferedPrice;
 	@SuppressWarnings("deprecation")
 	@Override
+	
+@Test
 	public void executeTestCase() throws Exception {
 		//switching to amazon applications
 		if (AndroidDriverInitializer.androiddriver != null) {

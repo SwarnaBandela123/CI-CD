@@ -2,12 +2,15 @@ package FlipkartAutomationTest;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.Test;
 
 
 public class search_again_filters implements MultiThreadTestCase {
 	 public static String FlipkartName;
 	 public static double flipkartOfferedPrice;
 	@Override
+	
+@Test
 	public void executeTestCase() throws InterruptedException {
 		logger.info(testDataLoader.get_start_search_product_testcase());
 		

@@ -6,11 +6,13 @@ import java.util.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.Test;
 
 
 
 public class cart_operations implements MultiThreadTestCase{
 
+@Test
 	@Override
 	public void executeTestCase() throws Exception {
 	logger.info(testDataLoader.get_start_cart_operations_testcase());

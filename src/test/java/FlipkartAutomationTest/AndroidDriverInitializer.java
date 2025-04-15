@@ -4,6 +4,8 @@ import java.net.URL;
 import java.time.Duration;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.Test;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
@@ -12,6 +14,8 @@ public class AndroidDriverInitializer extends DriverInitializer{
 
 	public static AndroidDriver androiddriver;
 	@Override
+	
+	@Test
 	public void AppiumDriverInitializer() {
     	AppiumServiceBuilder ServiceBuilder=new AppiumServiceBuilder();
 		AppiumDriverLocalService Server=AppiumDriverLocalService.buildService(ServiceBuilder.usingPort(4723));
