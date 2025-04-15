@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.Test;
 
+import ch.qos.logback.classic.Logger;
+
 
 
 public class cart_operations implements MultiThreadTestCase{
@@ -17,7 +19,7 @@ public class cart_operations implements MultiThreadTestCase{
 	public void executeTestCase() throws Exception {
 	logger.info(testDataLoader.get_start_cart_operations_testcase());
 	
-	
+	logger.info("cart operations");
    	
    //Again add two are more products to the cart
 	WebElement fashions = wait.until(ExpectedConditions.visibilityOfElementLocated(locators.getfashions()));
